@@ -1,2 +1,3 @@
 ansible/virtualbox.box
 ansible/user_data
+node_modules
