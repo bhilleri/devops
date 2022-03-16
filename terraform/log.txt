@@ -1,0 +1,75 @@
+[0m[1mvirtualbox_vm.node[1]: Refreshing state... [id=87077335-c2ad-4046-85a1-82a4a3024b75][0m
+[0m[1mvirtualbox_vm.node[0]: Refreshing state... [id=8954d2b2-3228-4329-a59e-049f38616b8f][0m
+[0m
+[1m[36mNote:[0m[1m Objects have changed outside of Terraform[0m
+
+[0mTerraform detected the following changes made outside of Terraform since the
+last "terraform apply":
+
+[1m  # virtualbox_vm.node[0][0m has changed[0m[0m
+[0m  [33m~[0m[0m resource "virtualbox_vm" "node" {
+      [32m+[0m [0m[1m[0mboot_order[0m[0m = []
+        [1m[0mid[0m[0m         = "8954d2b2-3228-4329-a59e-049f38616b8f"
+        [1m[0mname[0m[0m       = "node-01"
+        [90m# (4 unchanged attributes hidden)[0m[0m
+
+        [90m# (1 unchanged block hidden)[0m[0m
+    }
+
+[1m  # virtualbox_vm.node[1][0m has changed[0m[0m
+[0m  [33m~[0m[0m resource "virtualbox_vm" "node" {
+      [32m+[0m [0m[1m[0mboot_order[0m[0m = []
+        [1m[0mid[0m[0m         = "87077335-c2ad-4046-85a1-82a4a3024b75"
+        [1m[0mname[0m[0m       = "node-02"
+        [90m# (4 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m [0mnetwork_adapter {
+          [32m+[0m [0m[1m[0mipv4_address[0m[0m           = "192.168.1.41"
+          [32m+[0m [0m[1m[0mipv4_address_available[0m[0m = "yes"
+          [32m+[0m [0m[1m[0mmac_address[0m[0m            = "080027FDBD4C"
+          [32m+[0m [0m[1m[0mstatus[0m[0m                 = "up"
+            [90m# (3 unchanged attributes hidden)[0m[0m
+        }
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+[31m-[0m/[32m+[0m destroy and then create replacement
+[0m
+Terraform will perform the following actions:
+
+[1m  # virtualbox_vm.node[1][0m is tainted, so must be [1m[31mreplaced[0m[0m
+[0m[31m-[0m/[32m+[0m[0m resource "virtualbox_vm" "node" {
+      [31m-[0m [0m[1m[0mboot_order[0m[0m = [] [90m->[0m [0m[90mnull[0m[0m
+      [33m~[0m [0m[1m[0mid[0m[0m         = "87077335-c2ad-4046-85a1-82a4a3024b75" [33m->[0m [0m(known after apply)
+        [1m[0mname[0m[0m       = "node-02"
+        [90m# (4 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m [0mnetwork_adapter {
+          [33m~[0m [0m[1m[0mipv4_address[0m[0m           = "192.168.1.41" [33m->[0m [0m(known after apply)
+          [33m~[0m [0m[1m[0mipv4_address_available[0m[0m = "yes" [33m->[0m [0m(known after apply)
+          [33m~[0m [0m[1m[0mmac_address[0m[0m            = "080027FDBD4C" [33m->[0m [0m(known after apply)
+          [33m~[0m [0m[1m[0mstatus[0m[0m                 = "up" [33m->[0m [0m(known after apply)
+            [90m# (3 unchanged attributes hidden)[0m[0m
+        }
+    }
+
+[0m[1mPlan:[0m 1 to add, 0 to change, 1 to destroy.
+[0m[0m
+[1mChanges to Outputs:[0m[0m
+  [32m+[0m [0m[1m[0mIPAddr[0m[0m   = (known after apply)
+  [32m+[0m [0m[1m[0mIPAddr_2[0m[0m = "192.168.1.40"
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0m
+Apply cancelled.
